@@ -3,7 +3,7 @@ name: Update README
 on:
   push:
     branches:
-      - main  # Modify this if your default branch has a different name
+      - master  # Modify this if your default branch has a different name
 
 jobs:
   update-readme:
