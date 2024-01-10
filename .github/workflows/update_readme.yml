@@ -26,8 +26,8 @@ jobs:
 
     - name: Commit and push if README changed
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "bot@arjunkrishna.in"
+        git config --local user.name "Cipher Bot"
 
         # Set the bot's Personal Access Token as an environment variable
         export GH_TOKEN="${{ secrets.BOT_ACCESS_TOKEN }}"
