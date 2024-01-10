@@ -3,7 +3,7 @@ name: Update README
 on:
   push:
     branches:
-      - master
+      - main  # Modify this if your default branch has a different name
 
 jobs:
   update-readme:
@@ -26,9 +26,16 @@ jobs:
 
     - name: Commit and push if README changed
       run: |
-        git config --local user.email "bot@arjunkrishna.in"
-        git config --local user.name "Cipher Bot"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+        # Set the bot's Personal Access Token as an environment variable
+        export GH_TOKEN="${{ secrets.BOT_ACCESS_TOKEN }}"
+
+        # Push the changes
         git add README.md
         git commit -m "Update README using GitHub Action"
-        git push
+        git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
       if: github.event_name == 'push'
+      env:
+        GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
