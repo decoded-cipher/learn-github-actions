@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Run script to update README
-      run: node update_readme.js
+      run: node scripts/update_readme.js
 
     - name: Commit and push if README changed
       run: |
