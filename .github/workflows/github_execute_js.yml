@@ -1,6 +1,9 @@
 name: Execute JS File
-
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+      - '**/.github/**'
 jobs:
   execute-js:
     runs-on: ubuntu-latest
